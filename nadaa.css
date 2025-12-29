@@ -1,0 +1,194 @@
+* {
+  box-sizing: border-box;
+  font-family: 'Poppins', Arial, sans-serif;
+}
+
+body {
+  margin: 0;
+  background: linear-gradient(to bottom, #FFE066, #FFF6C3);
+}
+
+header {
+  background: #FFD93D;
+  text-align: center;
+  position: relative;
+  overflow: hidden; /* PENTING biar gak melebar */
+}
+
+.banner {
+  width: 320px; /* bebas, 280–360 aman */
+  max-width: 90%;
+  height: auto;
+}
+/* ===== MAIN ===== */
+main {
+  padding: 40px 20px;
+  max-width: 900px;
+  margin: auto;
+}
+
+/* ===== GALLERY ===== */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 20px;
+  margin-bottom: 60px;
+}
+
+.frame {
+  background: white;
+  border: 6px solid #FFD93D;
+  border-radius: 15px;
+  padding: 6px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+  transform: rotate(var(--rot));
+}
+
+.frame img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.frame {
+  perspective: 1000px; /* penting buat efek 3D */
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 180px;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+  border-radius: 10px;
+}
+
+.frame:hover .flip-card-inner {
+  transform: rotateY(180deg); /* flip horizontal */
+}
+
+.flip-card-front,
+.flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 10px;
+}
+
+.flip-card-front img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.flip-card-back {
+  background: #FFD93D;
+  color: #5a4700;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform: rotateY(180deg);
+  padding: 10px;
+  text-align: center;
+  font-weight: bold;
+}
+
+/* ===== LETTER SECTION ===== */
+.letter-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+/* FOTO MEOW — NO SHADOW, NO BORDER */
+.side-photo {
+  width: 120px;
+  box-shadow: none;
+  border-radius: 0;
+  background: none;
+}
+
+/* surat */
+.letter {
+  width: 320px;
+  height: 200px;
+  background: #ffffff;
+  border-radius: 12px;
+  position: relative;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.flap {
+  position: absolute;
+  inset: 0;
+  background: #FFD93D;
+  clip-path: polygon(0 0, 100% 0, 50% 55%);
+  transition: transform 0.8s ease;
+  transform-origin: top;
+}
+
+.letter.open .flap {
+  transform: rotateX(180deg);
+}
+
+.message {
+  padding: 25px;
+  text-align: center;
+}
+
+.message h2 {
+  margin-top: 0;
+  margin-bottom: 10px; /* jarak bawah ke paragraf */
+  color: #5a4700;
+}
+
+.message p {
+  font-size: 0.95em;
+  color: #333;
+  line-height: 1.5;
+  min-height: 80px;
+  margin-top: 10px; /* jarak atas ke judul */
+}
+
+
+/* ===== CONFETTI ===== */
+.confetti {
+  position: fixed;
+  width: 10px;
+  height: 10px;
+  top: -10px;
+  animation: fall linear infinite;
+}
+
+@keyframes fall {
+  to {
+    transform: translateY(110vh) rotate(360deg);
+  }
+}
+
+/* ===== ANIMASI SUN ===== */
+.decor-img.sun {
+  animation: floatSun 3s ease-in-out infinite;
+}
+
+@keyframes floatSun {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-10px) rotate(10deg); }
+}
+
+/* ===== ANIMASI RAINBOW ===== */
+.decor-img.rainbow {
+  animation: floatRainbow 4s ease-in-out infinite;
+}
+
+@keyframes floatRainbow {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  25% { transform: translateY(-8px) rotate(-5deg); }
+  50% { transform: translateY(-15px) rotate(5deg); }
+  75% { transform: translateY(-8px) rotate(-5deg); }
+}
