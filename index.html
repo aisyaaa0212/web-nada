@@ -135,6 +135,7 @@ main {
 
 .letter {
   width: 300px;
+  height: 190px;
   background: #fff;
   border-radius: 12px;
   position: relative;
@@ -183,32 +184,25 @@ main {
   to { transform: translateY(110vh) rotate(360deg); }
 }
 
-/* ===== FLIP CARD FIX ===== */
-.flip-frame {
-  max-width: 420px;
-  margin: auto;
-  padding: 6px;
-}
-
+/* ===== FLIP CARD ===== */
 .flip-card-inner {
-  width: 100%;
-  height: 260px; /* LAPTOP FIX */
   position: relative;
+  width: 100%;
+  height: 260px;
   transition: transform 0.6s;
   transform-style: preserve-3d;
 }
 
-.flip-frame:hover .flip-card-inner {
+.frame:hover .flip-card-inner {
   transform: rotateY(180deg);
 }
 
 .flip-card-front,
 .flip-card-back {
   position: absolute;
-  inset: 0;
+  width: 100%;
+  height: 100%;
   backface-visibility: hidden;
-  border-radius: 10px;
-  overflow: hidden;
 }
 
 .flip-card-front img {
@@ -223,34 +217,51 @@ main {
   display: flex;
   align-items: center;
   justify-content: center;
-  text-align: center;
   transform: rotateY(180deg);
   font-weight: bold;
   padding: 20px;
 }
 
-/* ===== RESPONSIVE HP ===== */
+/* ===== RESPONSIVE HP (SATU AJA, BERSIH) ===== */
 @media (max-width: 600px) {
 
   header { height: 180px; }
+
   .banner { width: 240px; }
 
-  .decor-img.sun { width: 55px; top: 8px; }
-  .decor-img.rainbow { width: 90px; bottom: 8px; }
-
-  .gallery { grid-template-columns: repeat(2, 1fr); gap: 12px; }
-  .frame img { height: 150px; }
-
-  .letter-container { flex-direction: column; align-items: center; gap: 15px; }
-  .side-photo { width: 140px; }
-  .letter { width: 90%; max-width: 320px; }
-
-  .flip-frame {
-    max-width: 300px;
-    aspect-ratio: 3 / 4; /* KHUSUS HP */
+  .decor-img.sun {
+    width: 55px;
+    top: 8px;
   }
 
-  .flip-card-inner { height: 100%; }
+  .decor-img.rainbow {
+    width: 90px;
+    bottom: 8px;
+  }
+
+  .gallery {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+
+  .frame img { height: 150px; }
+
+  .letter-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+  }
+
+  .side-photo { width: 140px; }
+
+  .letter {
+    width: 90%;
+    max-width: 320px;
+    height: auto;
+    padding-bottom: 15px;
+  }
+
+  .flip-card-inner { height: 220px; }
 
   main { padding-bottom: 25px; }
 }
@@ -294,7 +305,7 @@ main {
 </section>
 
 <section style="margin-top:40px">
-  <div class="frame flip-frame">
+  <div class="frame" style="max-width:420px;margin:auto;">
     <div class="flip-card-inner">
       <div class="flip-card-front">
         <img src="poto nanad/nadd5.jpeg">
@@ -316,8 +327,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 let typed = false;
 const text = `Happy level up anak kesayanganku yang geulis, imoet jelita.
-wish you all the best!
-ea ea ea`;
+wish you all the best!`;
 
 function openLetter(el) {
   el.classList.add("open");
