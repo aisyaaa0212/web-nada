@@ -2,8 +2,8 @@
 <html lang="id">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Birthday Nada 29dec 2025✨</title>
-<link rel="stylesheet" href="nadaa.css">
 
 <style>
 * {
@@ -16,9 +16,10 @@
 /* ===== BODY ===== */
 body {
   background: linear-gradient(to bottom, #FFE066, #FFF6C3);
+  overflow-x: hidden;
 }
 
-/* ===== LOADING SCREEN ===== */
+/* ===== LOADING ===== */
 #loading {
   position: fixed;
   inset: 0;
@@ -37,27 +38,23 @@ body {
 
 .loader {
   display: flex;
-  flex-direction: column; /* gambar di atas, teks di bawah */
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  text-align: center;
 }
 
 .loader img {
-  width: 300px;       /* besar langsung */
-  max-width: 90%;     /* responsive */
+  width: 280px;
+  max-width: 85%;
   animation: float 2s ease-in-out infinite;
 }
 
 .loader p {
-  margin: 10px 0 0 0; /* langsung di bawah gambar */
-  font-weight: 500;
+  margin-top: 10px;
   color: #5a4700;
 }
 
 @keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-15px); }
+  50% { transform: translateY(-12px); }
 }
 
 /* ===== HEADER ===== */
@@ -65,7 +62,7 @@ header {
   background: #FFD93D;
   text-align: center;
   position: relative;
-  height: 260px;
+  height: 240px;
   overflow: hidden;
 }
 
@@ -74,26 +71,28 @@ header {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 420px;
-  max-width: 90%;
-  height: auto;
+  width: 380px;
+  max-width: 85%;
+  animation: glimmer 3s ease-in-out infinite;
 }
 
-/* dekor gambar */
+@keyframes glimmer {
+  50% { filter: brightness(130%); }
+}
+
 .decor-img {
   position: absolute;
-  width: 100px;
-  opacity: 0.9;
+  width: 90px;
 }
 
-.decor-img.left { left: 20px; }
-.decor-img.right { right: 20px; }
 .decor-img.sun { top: 20px; }
-.decor-img.rainbow { bottom: 15px; width: 150px; }
+.decor-img.rainbow { bottom: 15px; width: 140px; }
+.decor-img.left { left: 10px; }
+.decor-img.right { right: 10px; }
 
 /* ===== MAIN ===== */
 main {
-  padding: 40px 20px;
+  padding: 30px 15px;
   max-width: 900px;
   margin: auto;
 }
@@ -101,23 +100,22 @@ main {
 /* ===== GALLERY ===== */
 .gallery {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-  gap: 20px;
-  margin-bottom: 60px;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 16px;
+  margin-bottom: 50px;
 }
 
 .frame {
   background: white;
-  border: 6px solid #FFD93D;
-  border-radius: 15px;
+  border: 5px solid #FFD93D;
+  border-radius: 14px;
   padding: 6px;
-  box-shadow: 0 10px 20px rgba(0,0,0,0.15);
-  transform: rotate(var(--rot));
+  box-shadow: 0 8px 16px rgba(0,0,0,0.15);
 }
 
 .frame img {
   width: 100%;
-  height: 180px;
+  height: 160px;
   object-fit: cover;
   border-radius: 10px;
 }
@@ -126,16 +124,18 @@ main {
 .letter-container {
   display: flex;
   justify-content: center;
-  align-items: center;
   gap: 20px;
   flex-wrap: wrap;
 }
 
-.side-photo { width: 230px; }
+.side-photo {
+  width: 200px;
+  max-width: 70%;
+}
 
 .letter {
-  width: 320px;
-  height: 200px;
+  width: 300px;
+  height: 190px;
   background: #fff;
   border-radius: 12px;
   position: relative;
@@ -157,25 +157,19 @@ main {
 }
 
 .message {
-  padding: 25px;
+  padding: 20px;
   text-align: center;
 }
 
 .message h2 {
-  margin-top: 0;
-  margin-bottom: 10px; /* jarak bawah ke paragraf */
+  margin-bottom: 8px;
   color: #5a4700;
 }
 
 .message p {
-  font-size: 0.95em;
-  color: #333;
+  font-size: 0.9em;
   line-height: 1.5;
-  min-height: 80px;
-  margin-top: 10px; /* jarak atas ke judul */
 }
-
-
 
 /* ===== CONFETTI ===== */
 .confetti {
@@ -190,70 +184,17 @@ main {
   to { transform: translateY(110vh) rotate(360deg); }
 }
 
-/* ===== ANIMASI SUN ===== */
-.decor-img.sun {
-  animation: floatSun 3s ease-in-out infinite;
-}
-
-@keyframes floatSun {
-  0%, 100% { transform: translateY(0) rotate(0deg); }
-  50% { transform: translateY(-10px) rotate(10deg); }
-}
-
-/* ===== ANIMASI RAINBOW ===== */
-.decor-img.rainbow {
-  animation: floatRainbow 4s ease-in-out infinite;
-}
-
-@keyframes floatRainbow {
-  0%, 100% { transform: translateY(0) rotate(0deg); }
-  25% { transform: translateY(-8px) rotate(-5deg); }
-  50% { transform: translateY(-15px) rotate(5deg); }
-  75% { transform: translateY(-8px) rotate(-5deg); }
-}
-
-/* ===== ANIMASI GLIMMER BANNER ===== */
-.banner {
-  animation: glimmer 3s ease-in-out infinite;
-}
-
-@keyframes glimmer {
-  0%, 100% { filter: brightness(100%); }
-  50% { filter: brightness(130%); } /* makin terang di tengah */
-}
-
-/* ===== EFFECT HOVER FRAME ===== */
-.frame {
-  background: white;
-  border: 6px solid #FFD93D;
-  border-radius: 15px;
-  padding: 6px;
-  box-shadow: 0 10px 20px rgba(0,0,0,0.15);
-  transform: rotate(var(--rot));
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  cursor: pointer; /* kasih cursor pointer biar kaya tombol */
-}
-
-.frame:hover {
-  transform: scale(1.05) rotate(var(--rot)); /* nge-zoom dikit tapi tetap rotate */
-  box-shadow: 0 15px 25px rgba(0,0,0,0.25); /* shadow lebih tebal */
-}
-
-.frame {
-  perspective: 1000px; /* penting buat efek 3D */
-}
-
+/* ===== FLIP CARD ===== */
 .flip-card-inner {
   position: relative;
   width: 100%;
-  height: 180px;
+  height: 260px;
   transition: transform 0.6s;
   transform-style: preserve-3d;
-  border-radius: 10px;
 }
 
 .frame:hover .flip-card-inner {
-  transform: rotateY(180deg); /* flip horizontal */
+  transform: rotateY(180deg);
 }
 
 .flip-card-front,
@@ -262,7 +203,6 @@ main {
   width: 100%;
   height: 100%;
   backface-visibility: hidden;
-  border-radius: 10px;
 }
 
 .flip-card-front img {
@@ -275,28 +215,45 @@ main {
   background: #FFD93D;
   color: #5a4700;
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
   transform: rotateY(180deg);
-  padding: 20px;
-  text-align: center;
   font-weight: bold;
+  padding: 20px;
 }
 
+/* ===== RESPONSIVE HP ===== */
+@media (max-width: 600px) {
+  header { height: 200px; }
+
+  .banner { width: 300px; }
+
+  .decor-img { width: 70px; }
+  .decor-img.rainbow { width: 110px; }
+
+  .frame img { height: 140px; }
+
+  .letter {
+    width: 100%;
+    max-width: 320px;
+  }
+
+  .flip-card-inner {
+    height: 220px;
+  }
+}
 </style>
 </head>
 
 <body>
 
-<!-- LOADING -->
 <div id="loading">
   <div class="loader">
-    <img src="poto nanad/Birthday1.png" alt="loading">
+    <img src="poto nanad/Birthday1.png">
     <p>Loading surprise...</p>
   </div>
 </div>
 
-<!-- HEADER -->
 <header>
   <img src="poto nanad/rainbow1.png" class="decor-img left rainbow">
   <img src="poto nanad/sun1.png" class="decor-img left sun">
@@ -305,42 +262,39 @@ main {
   <img src="poto nanad/sun1.png" class="decor-img right sun">
 </header>
 
-<!-- MAIN -->
 <main>
-  <section class="gallery">
-    <div class="frame" style="--rot:-5deg"><img src="poto nanad/nadd1.jpg"></div>
-    <div class="frame" style="--rot:4deg"><img src="poto nanad/nadd2.jpeg"></div>
-    <div class="frame" style="--rot:-3deg"><img src="poto nanad/nadd3.jpeg"></div>
-    <div class="frame" style="--rot:6deg"><img src="poto nanad/nadd4.jpeg"></div>
-  </section>
+<section class="gallery">
+  <div class="frame"><img src="poto nanad/nadd1.jpg"></div>
+  <div class="frame"><img src="poto nanad/nadd2.jpeg"></div>
+  <div class="frame"><img src="poto nanad/nadd3.jpeg"></div>
+  <div class="frame"><img src="poto nanad/nadd4.jpeg"></div>
+</section>
 
-  <section class="letter-container">
-    <img src="poto nanad/meow hbd1.png" class="side-photo">
-    <div class="letter" onclick="openLetter(this)">
-      <div class="flap"></div>
-      <div class="message">
-        <h2>ceilah dah gede</h2>
-        <p id="typedText"></p>
-      </div>
-    </div>
-  </section>
-
-  <section class="">
-  <div class="frame" style="max-width:500px; margin:auto;"> <!-- lebih lebar -->
-    <div class="flip-card-inner" style="height:300px; width:100%;"> <!-- tinggi dan lebar lebih gede -->
-      <div class="flip-card-front">
-        <img src="poto nanad/nadd5.jpeg" style="width:100%; height:100%; object-fit:cover;">
-      </div>
-      <div class="flip-card-back">
-        <p>You and mee, always poreper😘</p>
-      </div>
+<section class="letter-container">
+  <img src="poto nanad/meow hbd1.png" class="side-photo">
+  <div class="letter" onclick="openLetter(this)">
+    <div class="flap"></div>
+    <div class="message">
+      <h2>ceilah dah gede</h2>
+      <p id="typedText"></p>
     </div>
   </div>
 </section>
 
+<section style="margin-top:40px">
+  <div class="frame" style="max-width:420px;margin:auto;">
+    <div class="flip-card-inner">
+      <div class="flip-card-front">
+        <img src="poto nanad/nadd5.jpeg">
+      </div>
+      <div class="flip-card-back">
+        You and mee, always poreper 😘
+      </div>
+    </div>
+  </div>
+</section>
 </main>
 
-<!-- JS -->
 <script>
 document.addEventListener("DOMContentLoaded", () => {
   setTimeout(() => {
@@ -349,16 +303,13 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 let typed = false;
-const text = `Happy level up anak kesayanganku yang geulis, imoet jelita. Semoga kebaikan selalu menyertaimu, 
-wish you all the best! 
-ea ea ea`;
+const text = `Happy level up anak kesayanganku yang geulis, imoet jelita.
+wish you all the best!`;
 
 function openLetter(el) {
   el.classList.add("open");
-  if (!typed) {
-    typeText();
-    typed = true;
-  }
+  if (!typed) typeText();
+  typed = true;
   spawnConfetti();
 }
 
@@ -377,7 +328,7 @@ function typeText() {
 }
 
 function spawnConfetti() {
-  for (let i = 0; i < 40; i++) {
+  for (let i = 0; i < 30; i++) {
     const c = document.createElement("div");
     c.className = "confetti";
     c.style.left = Math.random() * 100 + "vw";
@@ -385,12 +336,9 @@ function spawnConfetti() {
       ["#FFD93D", "#FFB703", "#FFF3B0"][Math.floor(Math.random() * 3)];
     c.style.animationDuration = (Math.random() * 3 + 2) + "s";
     document.body.appendChild(c);
-    setTimeout(() => c.remove(), 5000);
-  }  
-     
-
+    setTimeout(() => c.remove(), 4000);
+  }
 }
-
 </script>
 
 </body>
